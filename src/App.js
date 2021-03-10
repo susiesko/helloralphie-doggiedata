@@ -7,6 +7,7 @@ function App() {
     <div className="App">
       <Layout>        
         <Switch>
+          <Route exact path="/"><Profile/></Route>
           <Route exact path="/profile"><Profile/></Route>
           <Route exact path="/" render={() => <div>hello world</div>}/>
         </Switch>
