@@ -5,20 +5,20 @@ import ProfileForm from '../../components/Profile/ProfileForm';
 
 const Profile = () => {
   return (
-    <Grid 
-      container      
+    <Grid
+      container
       direction="row"
-      justify="center"
+      justify="stretch"
       alignItems="stretch"
     >
-      <Grid container item xs={9} spacing={3}>
+      <Grid container item xs={12} md={8}>
         <ProfileForm/>
       </Grid>
-      
-      <Grid container item xs={3} spacing={3}>        
+
+      <Grid container item xs={12} md={4}>
         <ProfilePic/>
       </Grid>
-      
+
     </Grid>
   );
 }

@@ -10,6 +10,9 @@ body {
   background: #FCEFD5;
   color: $theme-font-color;
   font-size: 20px;
+  width: 100%;
+  max-width:1152px;
+  margin: auto;
 }
 
 code {
@@ -20,3 +23,5 @@ code {
 h1 {
   font-size: 175%;
 }
+
+
