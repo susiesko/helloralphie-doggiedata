@@ -26,9 +26,10 @@ const ProfileForm = () => {
         direction="row"
         justify="center"
         alignItems="stretch"
+        spacing={5}
       >
         <Grid container item xs={12} >
-          <TextField 
+          <TextField
             placeholder="Name"
             value={name}
             onChange={ ev => dispatch(actions.updateProfileField('name', ev.target.value)) }
