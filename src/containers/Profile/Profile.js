@@ -1,6 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import ProfilePic from '../../components/SVGs/ProfilePic';
+import ProfileBadge from '../../components/Profile/ProfileBadge';
 import ProfileForm from '../../components/Profile/ProfileForm';
 
 const Profile = () => {  
@@ -16,7 +16,7 @@ const Profile = () => {
       </Grid>
 
       <Grid container item xs={12} md={3}>
-        <ProfilePic/>
+        <ProfileBadge/>
       </Grid>
 
     </Grid>

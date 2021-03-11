@@ -10,7 +10,13 @@ import BirthdatePicker from '../DatePicker/BirthdatePicker/BirthdatePicker';
 import { useDispatch, useSelector } from 'react-redux';
 
 const ProfileForm = () => {
-  const profileForm = useSelector(state => state.profileForm);
+  const { name, breed, birthdate } = useSelector(state => {
+    return {
+      name: state.profileForm.name,
+      breed: state.profileForm.breed,
+      birthdate: state.profileForm.birthdate
+    }
+  });
   const dispatch = useDispatch();
 
   return (
@@ -24,19 +30,22 @@ const ProfileForm = () => {
         <Grid container item xs={12} >
           <TextField 
             placeholder="Name"
-            value={profileForm.name}
+            value={name}
             onChange={ ev => dispatch(actions.updateProfileField('name', ev.target.value)) }
           />
         </Grid>
         <Grid container item xs={12} >
           <TextField 
-            value={profileForm.breed}
+            value={breed}
             placeholder="Breed"
             onChange={ ev => dispatch(actions.updateProfileField('breed', ev.target.value)) }
           />
         </Grid>
         <Grid container item xs={12}>
-          <BirthdatePicker/>
+          <BirthdatePicker 
+            value={birthdate}
+            onChange={ val => dispatch(actions.updateProfileField('birthdate', val)) }
+          />
         </Grid>
       </Grid>
     </div>

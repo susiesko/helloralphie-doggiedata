@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -22,14 +22,14 @@ const dayMenuItems = (days) => {
       <MenuItem key={`day${i}`} value={i}>{i}</MenuItem>
     );
   }
-  
+
   return menuItems;
 }
 
 const yearMenuItems = (minYear, maxYear) => {
   const startYear = maxYear || new Date().getFullYear();
   const endYear = minYear || (startYear - 120);
-  
+
   const menuItems = [];
 
   for (let i = startYear; i >= endYear; i--){
@@ -44,14 +44,10 @@ const yearMenuItems = (minYear, maxYear) => {
 const DatePicker = ( {value={}, minYear, maxYear, label, onChange} ) => {
   const {month=0, day, year} = value;
 
-  const onBirthdateChange = () => {
-    onChange();
-  }
+  const onDateChange = useCallback((m, d, y) => {
+    onChange({ month: m, day: d, year: y });
+  }, [onChange]);
 
-  const onDropdownChange = () => {
-    
-  }
-  
   const months = getMonths();
   const daysInMonth = (month > 0) ? months[month - 1].daysIn : 0;
 
@@ -63,9 +59,9 @@ const DatePicker = ( {value={}, minYear, maxYear, label, onChange} ) => {
         </InputLabel>
         <Select
           labelId="month-label"
-          id="month-select"          
-          onChange={onDropdownChange}
-          value={month}
+          id="month-select"
+          onChange={ev => onDateChange(ev.target.value, day, year)}
+          value={month || ''}
           placeholder="Month"
         >
           { monthMenuItems(months) }
@@ -73,9 +69,9 @@ const DatePicker = ( {value={}, minYear, maxYear, label, onChange} ) => {
       </FormControl>
       <FormControl className={classes.formControl}>
         <Select
-          id="day-select"    
-          value={day}      
-          onChange={onDropdownChange}
+          id="day-select"
+          value={day || ''}
+          onChange={ev => onDateChange(month, ev.target.value, year)}
           placeholder="Day"
         >
           { dayMenuItems(daysInMonth) }
@@ -84,8 +80,8 @@ const DatePicker = ( {value={}, minYear, maxYear, label, onChange} ) => {
       <FormControl className={classes.formControl}>
         <Select
           id="year-select"
-          value={year}
-          onChange={onDropdownChange}
+          value={year || ''}
+          onChange={ev => onDateChange(month, day, ev.target.value)}
           placeholder="Year"
         >
           { yearMenuItems(minYear, maxYear) }
