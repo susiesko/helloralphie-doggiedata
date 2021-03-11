@@ -42,9 +42,6 @@ const yearMenuItems = (minYear, maxYear) => {
 }
 
 const DatePicker = ( {value={}, minYear, maxYear, label, onChange} ) => {
-  // const month = value.month || 0;
-  // const day = value.day;
-  // const year = value.year;
   const {month=0, day, year} = value;
 
   const onBirthdateChange = () => {

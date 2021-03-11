@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 
-export const saveProfile = (data) => ({
-  type: actionTypes.SAVE_PROFILE,
+export const updateProfileField = (data) => ({
+  type: actionTypes.UPDATE_PROFILE_FIELD,
   data
 });

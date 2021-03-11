@@ -3,13 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import ProfilePic from '../../components/SVGs/ProfilePic';
 import ProfileForm from '../../components/Profile/ProfileForm';
 
-import classes from './Profile.module.css';
-
 const Profile = () => {  
-  
-    {/* <div className={classes.Profile}>
-      <div></div>
-    </div> */}
   return (
     <Grid
       container
