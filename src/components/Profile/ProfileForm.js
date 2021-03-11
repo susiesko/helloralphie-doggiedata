@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 
 import classes from './ProfileForm.module.css';
 
-import BirthdatePicker from '../BirthdatePicker/BirthdatePicker';
+import BirthdatePicker from '../DatePicker/BirthdatePicker/BirthdatePicker';
 
 const ProfileForm = () => {  
   return (

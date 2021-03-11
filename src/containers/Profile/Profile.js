@@ -8,7 +8,7 @@ const Profile = () => {
     <Grid
       container
       direction="row"
-      justify="stretch"
+      justify="space-evenly"
       alignItems="stretch"
     >
       <Grid container item xs={12} md={8}>

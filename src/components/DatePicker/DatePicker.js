@@ -6,7 +6,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 
 import { getMonths } from '../../utils/date';
 
-import classes from './BirthdatePicker.module.css'
+import classes from './DatePicker.module.css'
 
 const monthMenuItems = (months) => {
   return months.map((month, idx) => {
@@ -26,9 +26,9 @@ const dayMenuItems = (days) => {
   return menuItems;
 }
 
-const yearMenuItems = (maxYears) => {
-  const startYear = new Date().getFullYear();
-  const endYear = startYear - maxYears;
+const yearMenuItems = (minYear, maxYear) => {
+  const startYear = maxYear || new Date().getFullYear();
+  const endYear = minYear || (startYear - 120);
   
   const menuItems = [];
 
@@ -41,11 +41,14 @@ const yearMenuItems = (maxYears) => {
   return menuItems;
 }
 
-const BirthdatePicker = props => {
-  const {month=0, day, year} = props;
+const DatePicker = ( {value={}, minYear, maxYear, label, onChange} ) => {
+  // const month = value.month || 0;
+  // const day = value.day;
+  // const year = value.year;
+  const {month=0, day, year} = value;
 
   const onBirthdateChange = () => {
-    props.onChange();
+    onChange();
   }
 
   const onDropdownChange = () => {
@@ -53,13 +56,13 @@ const BirthdatePicker = props => {
   }
   
   const months = getMonths();
-  const daysInMonth = month > 0 ? months[month - 1].daysIn : 0;
+  const daysInMonth = (month > 0) ? months[month - 1].daysIn : 0;
 
   return (
-    <div className={classes.BirthdatePicker}>
+    <div className={classes.DatePicker}>
       <FormControl className={classes.formControl}>
         <InputLabel shrink id="month-label">
-          Birthdate
+          { label }
         </InputLabel>
         <Select
           labelId="month-label"
@@ -88,11 +91,11 @@ const BirthdatePicker = props => {
           onChange={onDropdownChange}
           placeholder="Year"
         >
-          { yearMenuItems(30) }
+          { yearMenuItems(minYear, maxYear) }
         </Select>
       </FormControl>
     </div>
   );
 }
 
-export default BirthdatePicker;
+export default DatePicker;
