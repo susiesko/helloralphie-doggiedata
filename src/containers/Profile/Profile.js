@@ -3,19 +3,25 @@ import Grid from '@material-ui/core/Grid';
 import ProfilePic from '../../components/SVGs/ProfilePic';
 import ProfileForm from '../../components/Profile/ProfileForm';
 
-const Profile = () => {
+import classes from './Profile.module.css';
+
+const Profile = () => {  
+  
+    {/* <div className={classes.Profile}>
+      <div></div>
+    </div> */}
   return (
     <Grid
       container
       direction="row"
-      justify="space-evenly"
-      alignItems="stretch"
+      justify="space-between"
+      spacing={10}
     >
-      <Grid container item xs={12} md={8}>
+      <Grid container item xs={12} md={9}>
         <ProfileForm/>
       </Grid>
 
-      <Grid container item xs={12} md={4}>
+      <Grid container item xs={12} md={3}>
         <ProfilePic/>
       </Grid>
 
