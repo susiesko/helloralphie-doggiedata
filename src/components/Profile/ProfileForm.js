@@ -71,7 +71,7 @@ const ProfileForm = () => {
           direction="row"
           justify="flex-end"
         >
-          <Link to="/log">
+          <Link to="/doglog">
             <Button className='btn'>Next</Button>
           </Link>
         </Grid>
