@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/styles';
 
 import * as actions from '../../store/actions/index';
 import BirthdatePicker from '../DatePicker/BirthdatePicker/BirthdatePicker';
+import { Link } from 'react-router-dom';
 
 //import classes from './ProfileForm.module.css';
 
@@ -25,9 +26,9 @@ const useStyles = makeStyles({
 const ProfileForm = () => {
   const { name, breed, birthdate } = useSelector(state => {
     return {
-      name: state.profileForm.name,
-      breed: state.profileForm.breed,
-      birthdate: state.profileForm.birthdate
+      name: state.profile.name,
+      breed: state.profile.breed,
+      birthdate: state.profile.birthdate
     }
   });
   const dispatch = useDispatch();
@@ -48,6 +49,7 @@ const ProfileForm = () => {
             onChange={ ev => dispatch(actions.updateProfileField('name', ev.target.value)) }
           />
         </Grid>
+        
         <Grid container item>
           <TextField 
             value={breed}
@@ -55,19 +57,23 @@ const ProfileForm = () => {
             onChange={ ev => dispatch(actions.updateProfileField('breed', ev.target.value)) }
           />
         </Grid>
+
         <Grid container item>
           <BirthdatePicker 
             value={birthdate}
             onChange={ val => dispatch(actions.updateProfileField('birthdate', val)) }
           />
         </Grid>
+
         <Grid 
           container 
           item
           direction="row"
           justify="flex-end"
         >
-          <Button className='btn'>Next</Button>
+          <Link to="/log">
+            <Button className='btn'>Next</Button>
+          </Link>
         </Grid>
       </Grid>
     </div>

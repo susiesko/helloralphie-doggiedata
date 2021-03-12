@@ -2,12 +2,16 @@ import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../utils/object';
 
 const initialState = {
-  profileForm: {}
+  profile: {
+    name: '',
+    breed: '',
+    birthdate: ''
+  }
 };
 
 const updateProfileField = (state, fieldName, fieldValue) => {
-  const updatedProfileForm = updateObject(state.profileForm, { [fieldName]: fieldValue });
-  return updateObject(state, { profileForm: updatedProfileForm });
+  const updatedProfile = updateObject(state.profile, { [fieldName]: fieldValue });
+  return updateObject(state, { profile: updatedProfile });
 };
 
 const reducer = (state = initialState, action) => {
