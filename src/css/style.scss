@@ -1,4 +1,5 @@
 @import './text.scss';
+@import './themes/default.scss';
 
 html {
   background: #553635;
@@ -29,6 +30,11 @@ code {
 
 h1 {
   font-size: 175%;
+}
+
+.btn {
+  background: $button-color;
+  color: $button-text-color;
 }
 
 

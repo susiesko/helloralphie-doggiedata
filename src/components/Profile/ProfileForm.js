@@ -1,13 +1,26 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/styles';
 
 import * as actions from '../../store/actions/index';
-
-import classes from './ProfileForm.module.css';
-
 import BirthdatePicker from '../DatePicker/BirthdatePicker/BirthdatePicker';
-import { useDispatch, useSelector } from 'react-redux';
+
+//import classes from './ProfileForm.module.css';
+
+const useStyles = makeStyles({
+  profileForm: {
+    width: '70%'
+  },
+  grid: {
+    display: 'flex',
+    justifyContent: 'start',
+    direction: 'column',
+    alignItems: 'stretch'
+  }
+});
 
 const ProfileForm = () => {
   const { name, breed, birthdate } = useSelector(state => {
@@ -18,35 +31,43 @@ const ProfileForm = () => {
     }
   });
   const dispatch = useDispatch();
+  const classes = useStyles();
 
   return (
-    <div className={classes.ProfileForm}>
+    <div className={classes.profileForm}>
       <h1>Your Doggy Profile</h1>
-      <Grid container
-        direction="row"
-        justify="center"
-        alignItems="stretch"
+      <Grid 
+        container
+        className={classes.grid}
         spacing={5}
       >
-        <Grid container item xs={12} >
+        <Grid container item>
           <TextField
             placeholder="Name"
             value={name}
             onChange={ ev => dispatch(actions.updateProfileField('name', ev.target.value)) }
           />
         </Grid>
-        <Grid container item xs={12} >
+        <Grid container item>
           <TextField 
             value={breed}
             placeholder="Breed"
             onChange={ ev => dispatch(actions.updateProfileField('breed', ev.target.value)) }
           />
         </Grid>
-        <Grid container item xs={12}>
+        <Grid container item>
           <BirthdatePicker 
             value={birthdate}
             onChange={ val => dispatch(actions.updateProfileField('birthdate', val)) }
           />
+        </Grid>
+        <Grid 
+          container 
+          item
+          direction="row"
+          justify="flex-end"
+        >
+          <Button className='btn'>Next</Button>
         </Grid>
       </Grid>
     </div>

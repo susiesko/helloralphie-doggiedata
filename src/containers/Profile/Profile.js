@@ -1,6 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import ProfileBadge from '../../components/Profile/ProfileBadge';
+import ProfileBadge from '../../components/Profile/ProfileBadge/ProfileBadge';
 import ProfileForm from '../../components/Profile/ProfileForm';
 
 const Profile = () => {  
