@@ -1,24 +1,24 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import ProfilePic from '../../components/SVGs/ProfilePic';
+import ProfileBadge from '../../components/Profile/ProfileBadge/ProfileBadge';
 import ProfileForm from '../../components/Profile/ProfileForm';
 
-const Profile = () => {
+const Profile = () => {  
   return (
-    <Grid 
-      container      
+    <Grid
+      container
       direction="row"
-      justify="center"
-      alignItems="stretch"
+      justify="space-between"
+      spacing={10}
     >
-      <Grid container item xs={9} spacing={3}>
+      <Grid container item xs={12} md={9}>
         <ProfileForm/>
       </Grid>
-      
-      <Grid container item xs={3} spacing={3}>        
-        <ProfilePic/>
+
+      <Grid container item xs={12} md={3}>
+        <ProfileBadge/>
       </Grid>
-      
+
     </Grid>
   );
 }

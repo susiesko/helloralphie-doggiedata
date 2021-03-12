@@ -1,4 +1,11 @@
 .PageContent{
+  width: 100%;
   box-sizing: border-box;
-  padding: 30px;
+  padding: 100px;
+}
+
+@media only screen and (max-width: 768px) {
+  .PageContent {
+    padding: 30px;
+  }
 }
