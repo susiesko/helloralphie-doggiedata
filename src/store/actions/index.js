@@ -5,3 +5,8 @@ export const updateProfileField = (field, value) => ({
   field,
   value
 });
+export const updateLogField = (field, value) => ({
+  type: actionTypes.UPDATE_LOG_FIELD,
+  field,
+  value
+});

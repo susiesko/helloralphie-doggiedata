@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -25,6 +25,7 @@ const useStyles = makeStyles({
 });
 
 const ProfileForm = () => {
+  const history = useHistory();
   const { name, breed, birthdate } = useSelector(state => {
     return {
       name: state.profile.name,
@@ -36,15 +37,17 @@ const ProfileForm = () => {
   const classes = useStyles();
 
   const saveProfile = () => {
-    axios.post('/doggieData/profiles.json', {
+    axios.post('/profiles.json', {
       name,
       breed,
       birthdate
     }).then(res => {
       console.log(res);
+      dispatch(actions.updateProfileField('id', res.data.name));
+      history.push('/doglog');
     }).catch(err => {
       console.log(err);
-    })
+    });
   }
 
   return (
