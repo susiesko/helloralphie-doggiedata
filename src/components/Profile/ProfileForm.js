@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -7,7 +8,7 @@ import { makeStyles } from '@material-ui/styles';
 
 import * as actions from '../../store/actions/index';
 import BirthdatePicker from '../DatePicker/BirthdatePicker/BirthdatePicker';
-import { Link } from 'react-router-dom';
+import axios from '../../axios';
 
 //import classes from './ProfileForm.module.css';
 
@@ -24,6 +25,7 @@ const useStyles = makeStyles({
 });
 
 const ProfileForm = () => {
+  const history = useHistory();
   const { name, breed, birthdate } = useSelector(state => {
     return {
       name: state.profile.name,
@@ -33,6 +35,20 @@ const ProfileForm = () => {
   });
   const dispatch = useDispatch();
   const classes = useStyles();
+
+  const saveProfile = () => {
+    axios.post('/profiles.json', {
+      name,
+      breed,
+      birthdate
+    }).then(res => {
+      console.log(res);
+      dispatch(actions.updateProfileField('id', res.data.name));
+      history.push('/doglog');
+    }).catch(err => {
+      console.log(err);
+    });
+  }
 
   return (
     <div className={classes.profileForm}>
@@ -71,9 +87,7 @@ const ProfileForm = () => {
           direction="row"
           justify="flex-end"
         >
-          <Link to="/doglog">
-            <Button className='btn'>Next</Button>
-          </Link>
+          <Button onClick={saveProfile} className='btn'>Next</Button>
         </Grid>
       </Grid>
     </div>
