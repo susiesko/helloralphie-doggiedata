@@ -7,12 +7,13 @@ import DogLog from './containers/DogLog/DogLog';
 import BasicInfo from './containers/DogLog/BasicInfo/BasicInfo';
 import AdditionalInfo from './containers/DogLog/AdditionalInfo/AdditionalInfo';
 
-import ButtonStyled from './components/Elements/ButtonStyled/ButtonStyled';
+import ButtonThemed from './components/Elements/ButtonThemed/ButtonThemed';
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#553635'
+      main: '#553635',
+      contrastText: '#FCEFD5'
     }
   }
 });
@@ -22,7 +23,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <Layout>        
-          <ButtonStyled>Hello World</ButtonStyled>
+          <ButtonThemed>Hello World</ButtonThemed>
           <Switch>
             <Route exact path="/"><Profile/></Route>
             <Route exact path="/doglog/additional-info"><AdditionalInfo/></Route>
