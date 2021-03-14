@@ -31,14 +31,14 @@ const BasicInfoForm = () => {
         container
         spacing={5}
       >
-        <Grid container item>
+        <Grid item xs={12}>
           <DatePicker
             value={date}
             onChange={ val => dispatch(actions.updateLogField('date', val)) }
           />
         </Grid>
         
-        <Grid container item>
+        <Grid item xs={12}>
           <TextField
             placeholder="Weight"
             value={weight}
@@ -50,6 +50,7 @@ const BasicInfoForm = () => {
         <Grid 
           container 
           item
+          xs={12}
           direction="row"
           justify="flex-end"
         >

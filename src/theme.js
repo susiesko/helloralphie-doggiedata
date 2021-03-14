@@ -11,6 +11,27 @@ const theme = createMuiTheme({
       main: primaryMain,
       contrastText: primaryContrastText
     }
+  },
+  overrides: {
+    MuiNativeSelect: {
+      root: {
+        borderRadius: '5px'
+      }
+    },
+    MuiSelect: {
+      filled: {
+        padding: '8px',
+        backgroundColor: primaryLight,
+        color: primaryContrastText,
+        '&:focus': {
+          backgroundColor: primaryLight,
+          color: primaryContrastText
+        }
+      },
+      iconFilled: {
+        color: primaryContrastText
+      }
+    }
   }
 });
 

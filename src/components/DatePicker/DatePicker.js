@@ -1,12 +1,21 @@
 import React, { useCallback } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import Grid from '@material-ui/core/Grid';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 
+import SelectThemed from '../Elements/SelectThemed/SelectThemed';
 import { getMonths } from '../../utils/date';
 
 import classes from './DatePicker.module.css'
+
+const useSelectStyles = makeStyles({
+  root: {
+    width: '32%'
+  }
+});
 
 const monthMenuItems = (months) => {
   return months.map((month, idx) => {
@@ -42,6 +51,7 @@ const yearMenuItems = (minYear, maxYear) => {
 }
 
 const DatePicker = ( {value={}, minYear, maxYear, label, onChange} ) => {
+  const selectClasses = useSelectStyles();
   const {month=0, day, year} = value;
 
   const onDateChange = useCallback((m, d, y) => {
@@ -51,42 +61,66 @@ const DatePicker = ( {value={}, minYear, maxYear, label, onChange} ) => {
   const months = getMonths();
   const daysInMonth = (month > 0) ? months[month - 1].daysIn : 0;
 
+  const selectInputConfigs = [
+    {
+      config: {
+        labelId: "month-label",
+        label: 'Month',
+        id: 'month-select',
+        value: month || '',
+        onChange: ev => onDateChange(ev.target.value, day, year)
+      },
+      children: monthMenuItems(months)
+    },
+    {
+      config: {
+        label: 'Day',
+        id: 'day-select',
+        value: day || '',
+        onChange: ev => onDateChange(month, ev.target.value, year)
+      },
+      children: dayMenuItems(daysInMonth)
+    },
+    {
+      config: {
+        label: 'Year',
+        id: 'year-select',
+        value: year || '',
+        onChange: ev => onDateChange(month, day, ev.target.value)
+      },
+      children: yearMenuItems(minYear, maxYear)
+    }
+  ];
+
+  const selectInputs = selectInputConfigs.map(input => (
+    <Grid
+      key={input.config.label.toLowerCase(0)}
+      item
+      xs={4}
+    >
+      <SelectThemed
+        {...input.config}
+        fullWidth
+      >
+        { input.children }
+      </SelectThemed>
+    </Grid>
+  ));
+
+
   return (
     <div className={classes.DatePicker}>
-      <FormControl className={classes.formControl}>
-        <InputLabel shrink id="month-label">
-          { label }
-        </InputLabel>
-        <Select
-          labelId="month-label"
-          id="month-select"
-          onChange={ev => onDateChange(ev.target.value, day, year)}
-          value={month || ''}
-          placeholder="Month"
-        >
-          { monthMenuItems(months) }
-        </Select>
-      </FormControl>
-      <FormControl className={classes.formControl}>
-        <Select
-          id="day-select"
-          value={day || ''}
-          onChange={ev => onDateChange(month, ev.target.value, year)}
-          placeholder="Day"
-        >
-          { dayMenuItems(daysInMonth) }
-        </Select>
-      </FormControl>
-      <FormControl className={classes.formControl}>
-        <Select
-          id="year-select"
-          value={year || ''}
-          onChange={ev => onDateChange(month, day, ev.target.value)}
-          placeholder="Year"
-        >
-          { yearMenuItems(minYear, maxYear) }
-        </Select>
-      </FormControl>
+      <InputLabel shrink id="month-label">
+        { label }
+      </InputLabel>
+      <Grid 
+        container        
+        direction="row"
+        justify="space-between"
+        spacing={2}
+      >
+        {selectInputs}
+      </Grid>
     </div>
   );
 }
