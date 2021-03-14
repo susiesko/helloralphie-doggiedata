@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 
 import BaseInfo from '../BaseInfo/BaseInfo';
@@ -7,6 +8,11 @@ import DietaryInfo from '../../../components/AdditionalInfo/DietaryInfo';
 import ButtonThemed from '../../../components/Elements/ButtonThemed/ButtonThemed';
 
 const AdditionalInfo = () => {
+  const history = useHistory();
+
+  const onNext = () => {
+    history.push('/doglog/full-log');
+  }
   
   return (
     <BaseInfo>
@@ -35,7 +41,7 @@ const AdditionalInfo = () => {
         container
         justify="center"    
       >
-        <ButtonThemed>Next</ButtonThemed>
+        <ButtonThemed onClick={onNext}>Next</ButtonThemed>
       </Grid>
     </BaseInfo>
   );

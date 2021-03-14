@@ -5,6 +5,7 @@ import Profile from './containers/Profile/Profile';
 import DogLog from './containers/DogLog/DogLog';
 import BasicInfo from './containers/DogLog/BasicInfo/BasicInfo';
 import AdditionalInfo from './containers/DogLog/AdditionalInfo/AdditionalInfo';
+import FullLog from './containers/DogLog/FullLog/FullLog';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Layout>        
         <Switch>
           <Route exact path="/"><Profile/></Route>
+          <Route exact path="/doglog/full-log"><FullLog/></Route>
           <Route exact path="/doglog/additional-info"><AdditionalInfo/></Route>
           <Route exact path="/doglog/basic-info"><BasicInfo/></Route>
           <Route exact path="/doglog"><DogLog/></Route>
