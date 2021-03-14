@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -6,7 +6,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 
 import { getMonths } from '../../utils/date';
 
-import classes from './BirthdatePicker.module.css'
+import classes from './DatePicker.module.css'
 
 const monthMenuItems = (months) => {
   return months.map((month, idx) => {
@@ -22,14 +22,14 @@ const dayMenuItems = (days) => {
       <MenuItem key={`day${i}`} value={i}>{i}</MenuItem>
     );
   }
-  
+
   return menuItems;
 }
 
-const yearMenuItems = (maxYears) => {
-  const startYear = new Date().getFullYear();
-  const endYear = startYear - maxYears;
-  
+const yearMenuItems = (minYear, maxYear) => {
+  const startYear = maxYear || new Date().getFullYear();
+  const endYear = minYear || (startYear - 120);
+
   const menuItems = [];
 
   for (let i = startYear; i >= endYear; i--){
@@ -41,31 +41,27 @@ const yearMenuItems = (maxYears) => {
   return menuItems;
 }
 
-const BirthdatePicker = props => {
-  const {month=0, day, year} = props;
+const DatePicker = ( {value={}, minYear, maxYear, label, onChange} ) => {
+  const {month=0, day, year} = value;
 
-  const onBirthdateChange = () => {
-    props.onChange();
-  }
+  const onDateChange = useCallback((m, d, y) => {
+    onChange({ month: m, day: d, year: y });
+  }, [onChange]);
 
-  const onDropdownChange = () => {
-    
-  }
-  
   const months = getMonths();
-  const daysInMonth = month > 0 ? months[month - 1].daysIn : 0;
+  const daysInMonth = (month > 0) ? months[month - 1].daysIn : 0;
 
   return (
-    <div className={classes.BirthdatePicker}>
+    <div className={classes.DatePicker}>
       <FormControl className={classes.formControl}>
         <InputLabel shrink id="month-label">
-          Birthdate
+          { label }
         </InputLabel>
         <Select
           labelId="month-label"
-          id="month-select"          
-          onChange={onDropdownChange}
-          value={month}
+          id="month-select"
+          onChange={ev => onDateChange(ev.target.value, day, year)}
+          value={month || ''}
           placeholder="Month"
         >
           { monthMenuItems(months) }
@@ -73,9 +69,9 @@ const BirthdatePicker = props => {
       </FormControl>
       <FormControl className={classes.formControl}>
         <Select
-          id="day-select"    
-          value={day}      
-          onChange={onDropdownChange}
+          id="day-select"
+          value={day || ''}
+          onChange={ev => onDateChange(month, ev.target.value, year)}
           placeholder="Day"
         >
           { dayMenuItems(daysInMonth) }
@@ -84,15 +80,15 @@ const BirthdatePicker = props => {
       <FormControl className={classes.formControl}>
         <Select
           id="year-select"
-          value={year}
-          onChange={onDropdownChange}
+          value={year || ''}
+          onChange={ev => onDateChange(month, day, ev.target.value)}
           placeholder="Year"
         >
-          { yearMenuItems(30) }
+          { yearMenuItems(minYear, maxYear) }
         </Select>
       </FormControl>
     </div>
   );
 }
 
-export default BirthdatePicker;
+export default DatePicker;

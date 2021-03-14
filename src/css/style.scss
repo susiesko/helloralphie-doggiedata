@@ -1,4 +1,11 @@
 @import './text.scss';
+@import './colors.scss';
+@import './themes/default.scss';
+
+html {
+  background: $palette-dark-brown;
+  height: 100%;
+}
 
 body {
   margin: 0;
@@ -7,9 +14,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #FCEFD5;
+  background: $palette-beige;
   color: $theme-font-color;
   font-size: 20px;
+  max-width:1152px;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  box-shadow: 3px 0px 8px #333, -3px 0px 8px #333;
 }
 
 code {
@@ -20,3 +32,10 @@ code {
 h1 {
   font-size: 175%;
 }
+
+.btn {
+  background: $button-color;
+  color: $button-text-color;
+}
+
+
