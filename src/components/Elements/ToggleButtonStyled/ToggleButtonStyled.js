@@ -9,19 +9,23 @@ const useStyles = makeStyles(theme => {
       backgroundColor: theme.palette.primary.light,
       color: theme.palette.primary.contrastText,
       '&:hover': {
-        color: theme.palette.primary.main
+        color: theme.palette.primary.main,
+        backgroundColor: theme.palette.primary.contrastText
       }
     },
     selected: {
-      backgroundColor: theme.palette.primary.main
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.primary.contrastText,
+      '&:hover, &:focus, &:visited': {
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.primary.contrastText,
+      }
     }
   });
 });
 
 const ToggleButtonStyled = props => {
   const classes = useStyles();
-
-  const propsWithoutChildren = { ...props, children: null };
 
   return (
     <ToggleButton 

@@ -10,14 +10,16 @@ import DatePicker from '../DatePicker/DatePicker';
 import classes from './BasicInfoForm.module.css';
 
 const BasicInfoForm = () => {
-  const dispatch = useDispatch();
+  // hooks / state management
   const history = useHistory();
+  const dispatch = useDispatch();
   const { date, weight } = useSelector(state => {
     return {
       date: state.newLogItem.date,
       weight: state.newLogItem.weight
     }
-  })
+  });
+
   const saveBasicInfo = () => {
     history.push('/doglog/additional-info')
   };
