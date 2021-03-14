@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 
 import * as actions from '../../store/actions/index';
-import ButtonThemed from '../Elements/ButtonThemed/ButtonThemed';
+import ButtonThemed from '../ThemedElements/ButtonThemed/ButtonThemed';
 import DatePicker from '../DatePicker/DatePicker';
 import classes from './BasicInfoForm.module.css';
 

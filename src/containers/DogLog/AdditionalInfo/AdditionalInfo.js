@@ -8,7 +8,7 @@ import axios from '../../../axios';
 import BaseInfo from '../BaseInfo/BaseInfo';
 import BehavioralInfo from '../../../components/AdditionalInfo/BehavioralInfo';
 import DietaryInfo from '../../../components/AdditionalInfo/DietaryInfo';
-import ButtonThemed from '../../../components/Elements/ButtonThemed/ButtonThemed';
+import ButtonThemed from '../../../components/ThemedElements/ButtonThemed/ButtonThemed';
 
 const AdditionalInfo = () => {
   const history = useHistory();

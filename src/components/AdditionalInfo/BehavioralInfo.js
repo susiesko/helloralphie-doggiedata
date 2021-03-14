@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { behaviors as allBehaviors } from '../../helpers/behavioralInfo';
-import ToggleButtonStyled from '../Elements/ToggleButtonStyled/ToggleButtonStyled';
-import ToggleButtonGroupStyled from '../Elements/ToggleButtonGroupStyled/ToggleButtonGroupStyled';
+import ToggleButtonStyled from '../ThemedElements/ToggleButtonStyled/ToggleButtonStyled';
+import ToggleButtonGroupStyled from '../ThemedElements/ToggleButtonGroupStyled/ToggleButtonGroupStyled';
 
 import * as actions from '../../store/actions/index';
 

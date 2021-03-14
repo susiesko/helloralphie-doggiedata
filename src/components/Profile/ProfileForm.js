@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core';
 
 import * as actions from '../../store/actions/index';
-import ButtonThemed from '../Elements/ButtonThemed/ButtonThemed';
+import ButtonThemed from '../ThemedElements/ButtonThemed/ButtonThemed';
 import BirthdatePicker from '../DatePicker/BirthdatePicker/BirthdatePicker';
 import axios from '../../axios';
 

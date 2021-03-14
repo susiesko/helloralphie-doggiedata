@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 
-import SelectThemed from '../Elements/SelectThemed/SelectThemed';
+import SelectThemed from '../ThemedElements/SelectThemed/SelectThemed';
 import { getMonths } from '../../utils/date';
 
 import classes from './DatePicker.module.css'
