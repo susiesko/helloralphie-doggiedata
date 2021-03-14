@@ -12,6 +12,21 @@ const theme = createMuiTheme({
       contrastText: primaryContrastText
     }
   },
+  typography: {
+    fontFamily: [
+      'Lato',
+      '-apple-system',
+      'BlinkMacSystemFont',
+      'Segoe UI',
+      'Roboto',
+      'Oxygen',
+      'Ubuntu',
+      'Cantarell',
+      'Fira Sans',
+      'Droid Sans',
+      'Helvetica Neue'
+    ].join(','),
+  },
   overrides: {
     MuiNativeSelect: {
       root: {
