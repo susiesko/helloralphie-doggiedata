@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 
 import * as actions from '../../store/actions/index';
+import ButtonThemed from '../Elements/ButtonThemed/ButtonThemed';
 import DatePicker from '../DatePicker/DatePicker';
 import classes from './BasicInfoForm.module.css';
 
@@ -53,7 +53,7 @@ const BasicInfoForm = () => {
           direction="row"
           justify="flex-end"
         >
-          <Button onClick={saveBasicInfo} className='btn'>Next</Button>
+          <ButtonThemed onClick={saveBasicInfo}>Next</ButtonThemed>
         </Grid>
       </Grid>
     </div>

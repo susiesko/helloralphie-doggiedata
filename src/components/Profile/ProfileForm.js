@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core';
 
 import * as actions from '../../store/actions/index';
+import ButtonThemed from '../Elements/ButtonThemed/ButtonThemed';
 import BirthdatePicker from '../DatePicker/BirthdatePicker/BirthdatePicker';
 import axios from '../../axios';
 
@@ -87,7 +87,7 @@ const ProfileForm = () => {
           direction="row"
           justify="flex-end"
         >
-          <Button onClick={saveProfile} className='btn'>Next</Button>
+          <ButtonThemed onClick={saveProfile}>Next</ButtonThemed>
         </Grid>
       </Grid>
     </div>

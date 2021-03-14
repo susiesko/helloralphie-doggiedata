@@ -8,17 +8,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './css/style.scss';
 import doggieDataReducer from './store/reducers/index';
-//import DoggieDataContext from './context/doggie-data-context';
-// theme ---------------------------------------------------------------
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      light: '#B69593',
-      main: '#553635',
-      contrastText: '#FCEFD5'
-    }
-  }
-});
+import doggieDataTheme from './theme';
 
 // redux ---------------------------------------------------------------
 
@@ -32,7 +22,7 @@ const app = (
   <Provider store={store}>
     <BrowserRouter>
       {/* <MuiThemeProvider theme={theme}> */}
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={doggieDataTheme}>
           <App />
         </ThemeProvider>
       {/* </MuiThemeProvider> */}
