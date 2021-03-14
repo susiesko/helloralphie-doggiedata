@@ -1,11 +1,35 @@
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
 
 import BaseInfo from '../BaseInfo/BaseInfo';
+import BehavioralInfo from '../../../components/AdditionalInfo/BehavioralInfo';
 
 const AdditionalInfo = () => {
+  
   return (
     <BaseInfo>
-    additional info
+      <Grid 
+        container
+        justify="space-between"
+        spacing={5}
+      >
+        <Grid 
+          item
+          xs={6}
+        >
+          <h2>Behavioral</h2>
+          <BehavioralInfo/>
+        </Grid>
+
+        <Grid
+          item
+          xs={6}
+        >
+          <h2>Dietary &amp; Digestional</h2>
+          
+        </Grid>
+
+      </Grid>
     </BaseInfo>
   );
 }
