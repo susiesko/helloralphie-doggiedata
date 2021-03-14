@@ -1,6 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
+
+import axios from '../../../axios';
 
 import BaseInfo from '../BaseInfo/BaseInfo';
 import BehavioralInfo from '../../../components/AdditionalInfo/BehavioralInfo';
@@ -9,9 +12,19 @@ import ButtonThemed from '../../../components/Elements/ButtonThemed/ButtonThemed
 
 const AdditionalInfo = () => {
   const history = useHistory();
+  const logData = useSelector(state => state.newLogItem);
+  const profileId = useSelector(state => state.profile.id);
 
-  const onNext = () => {
-    history.push('/doglog/full-log');
+  const saveLogInfo = () => {
+    axios.post('/doglog.json', {
+      ...logData,
+      profileId
+    }).then(res => {
+      console.log(res);
+      history.push('/doglog/full-log');
+    }).catch(err => {
+      console.log(err);
+    });
   }
   
   return (
@@ -41,7 +54,7 @@ const AdditionalInfo = () => {
         container
         justify="center"    
       >
-        <ButtonThemed onClick={onNext}>Next</ButtonThemed>
+        <ButtonThemed onClick={saveLogInfo}>Next</ButtonThemed>
       </Grid>
     </BaseInfo>
   );
