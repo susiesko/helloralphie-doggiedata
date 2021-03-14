@@ -1,8 +1,9 @@
 @import './text.scss';
+@import './colors.scss';
 @import './themes/default.scss';
 
 html {
-  background: #553635;
+  background: $palette-dark-brown;
   height: 100%;
 }
 
@@ -13,7 +14,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #FCEFD5;
+  background: $palette-beige;
   color: $theme-font-color;
   font-size: 20px;
   max-width:1152px;

@@ -9,7 +9,11 @@ const initialState = {
   },
   newLogItem: {
     date: '',
-    weight: ''
+    weight: '',
+    behaviors: [],
+    appetite: 1,
+    water: 1,
+    restroom: 1
   }
 };
 
