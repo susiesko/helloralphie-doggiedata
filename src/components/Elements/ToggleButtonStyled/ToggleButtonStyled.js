@@ -7,7 +7,10 @@ const useStyles = makeStyles(theme => {
   return ({
     root: {
       backgroundColor: theme.palette.primary.light,
-      color: theme.palette.primary.contrastText
+      color: theme.palette.primary.contrastText,
+      '&:hover': {
+        color: theme.palette.primary.main
+      }
     },
     selected: {
       backgroundColor: theme.palette.primary.main
