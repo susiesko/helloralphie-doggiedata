@@ -26,7 +26,7 @@ const theme = createMuiTheme({
       'Droid Sans',
       'Helvetica Neue'
     ].join(','),
-    color: primaryLight
+    color: primaryLight,    
   },
   overrides: {
     MuiButton: {
@@ -75,7 +75,31 @@ const theme = createMuiTheme({
       root: {
         color: primaryLight
       }
-    }
+    },
+    MuiToggleButton: {
+      root: {
+        backgroundColor: primaryLight,
+        color: primaryContrastText,
+        borderRadius: '0px',
+        textTransform: 'none',
+        fontWeight: 'bold',
+        fontSize: '1rem',
+      },
+      selected: {
+        backgroundColor: primaryMain,
+        color: primaryContrastText,
+        '&:focus': {
+          backgroundColor: primaryMain,
+          color: primaryContrastText
+        }
+      }
+    },
+    // MuiToggleButtonGroup: {
+    //   root: {
+    //     flexWrap: 'wrap',
+    //     justifyContent: 'space-between'
+    //   }
+    // }
   }
 });
 

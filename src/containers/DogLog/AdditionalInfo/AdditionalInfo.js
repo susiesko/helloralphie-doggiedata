@@ -32,11 +32,12 @@ const AdditionalInfo = () => {
       <Grid 
         container
         justify="space-between"
-        spacing={5}
+        spacing={10}
       >
         <Grid 
           item
-          xs={6}
+          xs={12}
+          md={6}
         >
           <h2>Behavioral</h2>
           <BehavioralInfo/>
@@ -44,17 +45,20 @@ const AdditionalInfo = () => {
 
         <Grid
           item
-          xs={6}
+          xs={12}
+          md={6}
         >
           <h2>Dietary &amp; Digestional</h2>
           <DietaryInfo/>
         </Grid>
-      </Grid>
-      <Grid
-        container
-        justify="center"    
-      >
-        <ButtonThemed onClick={saveLogInfo}>Next</ButtonThemed>
+        <Grid
+          container
+          style={{marginTop: '20px'}}
+          xs={12}
+          justify="center"    
+        >
+          <ButtonThemed onClick={saveLogInfo}>Next</ButtonThemed>
+        </Grid>
       </Grid>
     </BaseInfo>
   );
