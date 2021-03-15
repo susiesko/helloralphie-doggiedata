@@ -1,25 +1,15 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core';
 
 import * as actions from '../../store/actions/index';
 import ButtonThemed from '../ThemedElements/ButtonThemed/ButtonThemed';
 import BirthdatePicker from '../DatePicker/BirthdatePicker/BirthdatePicker';
 import axios from '../../axios';
 
-//import classes from './ProfileForm.module.css';
-
-const useStyles = makeStyles({
-  root: {
-    width: '70%',
-    '@media only screen and (max-width: 992px)': {
-      width: '100%'
-    }
-  }
-});
+import classes from './ProfileForm.module.css';
 
 const ProfileForm = () => {
   const history = useHistory();
@@ -31,7 +21,6 @@ const ProfileForm = () => {
     }
   });
   const dispatch = useDispatch();
-  const classes = useStyles();
 
   const saveProfile = () => {
     axios.post('/profiles.json', {
@@ -48,7 +37,7 @@ const ProfileForm = () => {
   }
 
   return (
-    <div className={classes.profileForm}>
+    <div className={classes.ProfileForm}>
       <h1>Your Doggy Profile</h1>
       <Grid 
         container

@@ -17,18 +17,16 @@ const DogLog = () => {
       direction="column"
       justify="space-between"
       alignItems="center"
-      spacing={5}
+      spacing={3}
     >
       <Grid item >
         <Avatar/>
       </Grid>
       <Grid item >
-        <div>We're excited to meet {name}!</div>
+        <p style={{fontSize: '24px', fontWeight: 700, letterSpacing: '2.4px'}}>We're excited to meet {name}!</p>
       </Grid>
       <Grid item >
-        <ButtonThemed 
-          href="/doglog/basic-info" 
-          className="btn">Start Logging</ButtonThemed>
+        <ButtonThemed href="/doglog/basic-info">Start Logging</ButtonThemed>
       </Grid>
     </Grid>
   );

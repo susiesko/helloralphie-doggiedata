@@ -32,6 +32,12 @@ const theme = createMuiTheme({
     MuiButton: {
       root: {
         borderRadius: '10px'
+      },
+      containedSizeLarge: {
+        padding: '20px',
+        fontSize: '14px',
+        letterSpacing: '1.4px',
+        fontWeight: 700
       }
     },
     MuiNativeSelect: {
