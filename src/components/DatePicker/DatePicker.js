@@ -1,21 +1,12 @@
 import React, { useCallback } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Grid from '@material-ui/core/Grid';
-import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 
 import SelectThemed from '../ThemedElements/SelectThemed/SelectThemed';
 import { getMonths } from '../../utils/date';
 
 import classes from './DatePicker.module.css'
-
-const useSelectStyles = makeStyles({
-  root: {
-    width: '32%'
-  }
-});
 
 const monthMenuItems = (months) => {
   return months.map((month, idx) => {
@@ -51,7 +42,6 @@ const yearMenuItems = (minYear, maxYear) => {
 }
 
 const DatePicker = ( {value={}, minYear, maxYear, label, onChange} ) => {
-  const selectClasses = useSelectStyles();
   const {month=0, day, year} = value;
 
   const onDateChange = useCallback((m, d, y) => {
@@ -110,7 +100,7 @@ const DatePicker = ( {value={}, minYear, maxYear, label, onChange} ) => {
 
   return (
     <div className={classes.DatePicker}>
-      <InputLabel shrink id="month-label">
+      <InputLabel id="month-label" style={{margin: '8px 0px', fontSize: '0.8rem'}}>
         { label }
       </InputLabel>
       <Grid 

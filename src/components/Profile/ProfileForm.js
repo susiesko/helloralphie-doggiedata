@@ -60,17 +60,19 @@ const ProfileForm = () => {
       >
         <Grid container item>
           <TextField
-            placeholder="Name"
+            label="Name"
             value={name}
             onChange={ ev => dispatch(actions.updateProfileField('name', ev.target.value)) }
+            fullWidth
           />
         </Grid>
         
         <Grid container item>
           <TextField 
             value={breed}
-            placeholder="Breed"
+            label="Breed"
             onChange={ ev => dispatch(actions.updateProfileField('breed', ev.target.value)) }
+            fullWidth
           />
         </Grid>
 

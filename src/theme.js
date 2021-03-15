@@ -26,8 +26,14 @@ const theme = createMuiTheme({
       'Droid Sans',
       'Helvetica Neue'
     ].join(','),
+    color: primaryLight
   },
   overrides: {
+    MuiButton: {
+      root: {
+        borderRadius: '10px'
+      }
+    },
     MuiNativeSelect: {
       root: {
         borderRadius: '5px'
@@ -45,6 +51,29 @@ const theme = createMuiTheme({
       },
       iconFilled: {
         color: primaryContrastText
+      }
+    },
+    MuiInput: {
+      underline: {
+        '&:before': {
+          borderBottomColor: primaryLight
+        },
+        '&:hover:not($disabled):not($focused):not($error):before': {
+          borderBottomColor: primaryLight
+        }
+      }
+    },
+    MuiInputBase: {
+      input: {
+        color: primaryLight,
+        '&:focus': {
+          color: primaryMain
+        }
+      }
+    },
+    MuiInputLabel: {
+      root: {
+        color: primaryLight
       }
     }
   }

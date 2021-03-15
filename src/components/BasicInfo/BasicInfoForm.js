@@ -33,6 +33,7 @@ const BasicInfoForm = () => {
       >
         <Grid item xs={12}>
           <DatePicker
+            label="Date"
             value={date}
             onChange={ val => dispatch(actions.updateLogField('date', val)) }
           />
@@ -40,10 +41,11 @@ const BasicInfoForm = () => {
         
         <Grid item xs={12}>
           <TextField
-            placeholder="Weight"
+            label="Weight"
             value={weight}
             type="number"
             onChange={ ev => dispatch(actions.updateLogField('weight', ev.target.value)) }
+            fullWidth
           />
         </Grid>
 
@@ -52,7 +54,7 @@ const BasicInfoForm = () => {
           item
           xs={12}
           direction="row"
-          justify="flex-end"
+          justify="center"
         >
           <ButtonThemed onClick={saveBasicInfo}>Next</ButtonThemed>
         </Grid>
