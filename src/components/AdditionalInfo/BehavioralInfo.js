@@ -33,16 +33,6 @@ const useToggleButtonStyles = makeStyles({
   }
 });
 
-const useToggleButtonGroupStyles = makeStyles({
-  root: {
-    display: 'block',
-    width: '352px',
-    '@media only screen and (min-width: 768px) and (max-width: 992px)': {
-      width: '704px'
-    }
-  }
-});
-
 const BehavioralInfo = () => {
   const selectedBehaviors = useSelector(state => state.newLogItem.behaviors);
   const toggleButtonClasses = useToggleButtonStyles();

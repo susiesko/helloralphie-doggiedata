@@ -13,14 +13,11 @@ import axios from '../../axios';
 //import classes from './ProfileForm.module.css';
 
 const useStyles = makeStyles({
-  profileForm: {
-    width: '70%'
-  },
-  grid: {
-    display: 'flex',
-    justifyContent: 'start',
-    direction: 'column',
-    alignItems: 'stretch'
+  root: {
+    width: '70%',
+    '@media only screen and (max-width: 992px)': {
+      width: '100%'
+    }
   }
 });
 
@@ -55,10 +52,12 @@ const ProfileForm = () => {
       <h1>Your Doggy Profile</h1>
       <Grid 
         container
-        className={classes.grid}
+        justify="start"
+        direction="column"
+        alignItems="stretch"
         spacing={5}
       >
-        <Grid container item>
+        <Grid item xs={12}>
           <TextField
             label="Name"
             value={name}
@@ -67,7 +66,7 @@ const ProfileForm = () => {
           />
         </Grid>
         
-        <Grid container item>
+        <Grid item xs={12}>
           <TextField 
             value={breed}
             label="Breed"
@@ -76,7 +75,7 @@ const ProfileForm = () => {
           />
         </Grid>
 
-        <Grid container item>
+        <Grid item xs={12}>
           <BirthdatePicker 
             value={birthdate}
             onChange={ val => dispatch(actions.updateProfileField('birthdate', val)) }
