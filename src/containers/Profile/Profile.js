@@ -23,11 +23,11 @@ const Profile = () => {
       spacing={10}
       classes={classes}
     >
-      <Grid item xs={12} md={9}>
+      <Grid item xs={12} md={8}>
         <ProfileForm/>
       </Grid>
 
-      <Grid item xs={12} md={3}>
+      <Grid item xs={12} md={4}>
         <ProfileBadge/>
       </Grid>
 
