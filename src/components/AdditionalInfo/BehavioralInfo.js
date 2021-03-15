@@ -26,9 +26,10 @@ const useToggleButtonStyles = makeStyles({
     width: '100%',
     height: '100%',
     fontSize: '0.625rem',
-    letterSpacing: '0.0625rem',
-    '@media only screen and (max-width: 992px)': {
-    }
+    letterSpacing: '0.0625rem'
+  }, 
+  selected: {
+    backgroundColor: 'black'
   }
 });
 
@@ -45,7 +46,6 @@ const useToggleButtonGroupStyles = makeStyles({
 const BehavioralInfo = () => {
   const selectedBehaviors = useSelector(state => state.newLogItem.behaviors);
   const toggleButtonClasses = useToggleButtonStyles();
-  const toggleButtonGroupClasses = useToggleButtonGroupStyles();
   const gridItemClasses = useGridItemStyle();
 
   const dispatch = useDispatch();

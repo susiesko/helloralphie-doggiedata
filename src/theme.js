@@ -84,16 +84,15 @@ const theme = createMuiTheme({
         textTransform: 'none',
         fontWeight: 'bold',
         fontSize: '1rem',
-      },
-      selected: {
-        backgroundColor: primaryMain,
-        color: primaryContrastText,
-        '&:focus': {
+        '&$selected': {
           backgroundColor: primaryMain,
           color: primaryContrastText
+        },
+        '&:hover': {
+          color: primaryMain
         }
-      }
-    },
+      },
+    }
     // MuiToggleButtonGroup: {
     //   root: {
     //     flexWrap: 'wrap',
