@@ -7,7 +7,7 @@ import ProfileForm from '../../components/Profile/ProfileForm';
 
 const useGridStyle = makeStyles({
   root: {
-    '@media only screen and (max-width: 992px)': {
+    '@media only screen and (max-width: 960px)': {
       flexDirection: 'column-reverse'
     }
   }

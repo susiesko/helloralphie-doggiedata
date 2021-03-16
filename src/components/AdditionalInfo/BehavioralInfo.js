@@ -54,15 +54,10 @@ const BehavioralInfo = () => {
 
   const toggleButtons = allBehaviors.map(btn => {
     const selected = selectedBehaviors.find(b => b === btn.value);
+
     return (
-      <Grid
-        item
-        xs={6}
-        sm={3}
-        classes={gridItemClasses}
-      >
-        <ToggleButton 
-          key={btn.value} 
+      <Grid key={btn.value} item xs={6} sm={3} classes={gridItemClasses}>
+        <ToggleButton
           classes={toggleButtonClasses}
           value={btn.value}
           selected={selected}

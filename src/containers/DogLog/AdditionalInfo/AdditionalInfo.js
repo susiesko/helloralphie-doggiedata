@@ -29,34 +29,18 @@ const AdditionalInfo = () => {
   
   return (
     <BaseInfo>
-      <Grid 
-        container
-        justify="space-between"
-        spacing={10}
-      >
-        <Grid 
-          item
-          xs={12}
-          md={6}
-        >
+      <Grid container justify="space-between" spacing={3}>
+        <Grid item xs={12} md={6}>
           <h2>Behavioral</h2>
           <BehavioralInfo/>
         </Grid>
 
-        <Grid
-          item
-          xs={12}
-          md={6}
-        >
+        <Grid item xs={12} md={6}>
           <h2>Dietary &amp; Digestional</h2>
           <DietaryInfo/>
         </Grid>
-        <Grid
-          container
-          style={{marginTop: '20px'}}
-          xs={12}
-          justify="center"    
-        >
+
+        <Grid style={{marginTop: '20px'}} item container xs={12} justify="center">
           <ButtonThemed onClick={saveLogInfo}>Next</ButtonThemed>
         </Grid>
       </Grid>
