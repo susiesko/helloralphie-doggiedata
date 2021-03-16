@@ -3,26 +3,16 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, compose } from 'redux';
 import { BrowserRouter } from 'react-router-dom';
-import { createMuiTheme, MuiThemeProvider, ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './css/style.scss';
 import doggieDataReducer from './store/reducers/index';
-//import DoggieDataContext from './context/doggie-data-context';
-// theme ---------------------------------------------------------------
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      light: '#B69593',
-      main: '#553635',
-      contrastText: '#FCEFD5'
-    }
-  }
-});
+import doggieDataTheme from './theme';
 
-// redux ---------------------------------------------------------------
-
-const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
+// redux tools ---------------------------------------------------------------
+const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+console.log(composeEnhancers)
 
 const rootReducer = doggieDataReducer;
 
@@ -32,7 +22,7 @@ const app = (
   <Provider store={store}>
     <BrowserRouter>
       {/* <MuiThemeProvider theme={theme}> */}
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={doggieDataTheme}>
           <App />
         </ThemeProvider>
       {/* </MuiThemeProvider> */}

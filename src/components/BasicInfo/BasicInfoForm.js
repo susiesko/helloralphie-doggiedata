@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 
 import * as actions from '../../store/actions/index';
+import ButtonThemed from '../ThemedElements/ButtonThemed/ButtonThemed';
 import DatePicker from '../DatePicker/DatePicker';
 import classes from './BasicInfoForm.module.css';
 
@@ -31,29 +31,32 @@ const BasicInfoForm = () => {
         container
         spacing={5}
       >
-        <Grid container item>
+        <Grid item xs={12}>
           <DatePicker
+            label="Date"
             value={date}
             onChange={ val => dispatch(actions.updateLogField('date', val)) }
           />
         </Grid>
         
-        <Grid container item>
+        <Grid item xs={12}>
           <TextField
-            placeholder="Weight"
+            label="Weight"
             value={weight}
             type="number"
             onChange={ ev => dispatch(actions.updateLogField('weight', ev.target.value)) }
+            fullWidth
           />
         </Grid>
 
         <Grid 
           container 
           item
+          xs={12}
           direction="row"
-          justify="flex-end"
+          justify="center"
         >
-          <Button onClick={saveBasicInfo} className='btn'>Next</Button>
+          <ButtonThemed onClick={saveBasicInfo}>Next</ButtonThemed>
         </Grid>
       </Grid>
     </div>

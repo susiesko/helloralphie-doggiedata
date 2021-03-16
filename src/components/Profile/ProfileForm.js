@@ -1,28 +1,15 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core';
 
 import * as actions from '../../store/actions/index';
+import ButtonThemed from '../ThemedElements/ButtonThemed/ButtonThemed';
 import BirthdatePicker from '../DatePicker/BirthdatePicker/BirthdatePicker';
 import axios from '../../axios';
 
-//import classes from './ProfileForm.module.css';
-
-const useStyles = makeStyles({
-  profileForm: {
-    width: '70%'
-  },
-  grid: {
-    display: 'flex',
-    justifyContent: 'start',
-    direction: 'column',
-    alignItems: 'stretch'
-  }
-});
+import classes from './ProfileForm.module.css';
 
 const ProfileForm = () => {
   const history = useHistory();
@@ -34,7 +21,6 @@ const ProfileForm = () => {
     }
   });
   const dispatch = useDispatch();
-  const classes = useStyles();
 
   const saveProfile = () => {
     axios.post('/profiles.json', {
@@ -51,30 +37,42 @@ const ProfileForm = () => {
   }
 
   return (
-    <div className={classes.profileForm}>
+    <div className={classes.ProfileForm}>
       <h1>Your Doggy Profile</h1>
       <Grid 
         container
-        className={classes.grid}
+        justify="start"
+        direction="column"
+        alignItems="stretch"
         spacing={5}
       >
-        <Grid container item>
+        <Grid item xs={12}>
           <TextField
-            placeholder="Name"
+            label="Name"
             value={name}
             onChange={ ev => dispatch(actions.updateProfileField('name', ev.target.value)) }
+            inputProps={{
+              maxLength: 15,
+              required: true
+            }}
+            fullWidth
           />
         </Grid>
         
-        <Grid container item>
+        <Grid item xs={12}>
           <TextField 
             value={breed}
-            placeholder="Breed"
+            label="Breed"
             onChange={ ev => dispatch(actions.updateProfileField('breed', ev.target.value)) }
+            inputProps={{
+              maxLength: 15,
+              required: true         
+            }}
+            fullWidth
           />
         </Grid>
 
-        <Grid container item>
+        <Grid item xs={12}>
           <BirthdatePicker 
             value={birthdate}
             onChange={ val => dispatch(actions.updateProfileField('birthdate', val)) }
@@ -87,7 +85,7 @@ const ProfileForm = () => {
           direction="row"
           justify="flex-end"
         >
-          <Button onClick={saveProfile} className='btn'>Next</Button>
+          <ButtonThemed onClick={saveProfile}>Next</ButtonThemed>
         </Grid>
       </Grid>
     </div>

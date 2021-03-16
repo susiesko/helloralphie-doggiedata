@@ -1,16 +1,17 @@
 import React from 'react';
+import Container from '@material-ui/core/Container';
 import Toolbar from '../../components/Toolbar/Toolbar';
 
 import './Layout.css';
 
 const Layout = props => {
   return (
-    <div>
+    <Container>
       <Toolbar/>
       <div className="PageContent">
         {props.children}
       </div>
-    </div>
+    </Container>
   );
 }
 
