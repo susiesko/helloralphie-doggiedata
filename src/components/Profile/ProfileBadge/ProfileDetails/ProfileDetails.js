@@ -25,11 +25,12 @@ const ProfileDetails = () => {
     birthdateString = `${year}-${month}-${day}`;
   }
 
+  const pStyle = {textAlign: 'center'};
+  const pContent = [name, breed, birthdateString];
+
   return (
-    <div className={classes.ProfileDetails}>
-      <p>{ name }</p>      
-      <p>{ breed }</p>      
-      <p>{ birthdateString }</p>      
+    <div>
+      { pContent.map(content => <p style={pStyle}>{ content }</p>) }
     </div>
   );
 }

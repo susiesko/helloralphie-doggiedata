@@ -51,6 +51,10 @@ const ProfileForm = () => {
             label="Name"
             value={name}
             onChange={ ev => dispatch(actions.updateProfileField('name', ev.target.value)) }
+            inputProps={{
+              maxLength: 15,
+              required: true
+            }}
             fullWidth
           />
         </Grid>
@@ -60,6 +64,10 @@ const ProfileForm = () => {
             value={breed}
             label="Breed"
             onChange={ ev => dispatch(actions.updateProfileField('breed', ev.target.value)) }
+            inputProps={{
+              maxLength: 15,
+              required: true         
+            }}
             fullWidth
           />
         </Grid>

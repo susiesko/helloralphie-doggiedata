@@ -6,7 +6,7 @@ import BaseBadge from '../BaseBadge/BaseBadge';
 const ProfileBadge = () => {
   const name = useSelector(state => state.profile.name);
   return (
-    <BaseBadge>
+    <BaseBadge badgeType="name">
       {name}
     </BaseBadge>
   );

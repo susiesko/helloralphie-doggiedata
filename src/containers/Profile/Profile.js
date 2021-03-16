@@ -27,7 +27,7 @@ const Profile = () => {
         <ProfileForm/>
       </Grid>
 
-      <Grid item xs={12} md={4}>
+      <Grid container item xs={12} md={4}>
         <ProfileBadge/>
       </Grid>
 
