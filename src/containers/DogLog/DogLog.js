@@ -26,7 +26,9 @@ const DogLog = () => {
         <p style={{fontSize: '24px', fontWeight: 700, letterSpacing: '2.4px'}}>We're excited to meet {name}!</p>
       </Grid>
       <Grid item >
-        <ButtonThemed href="/doglog/basic-info">Start Logging</ButtonThemed>
+        <Link to="/doglog/basic-info" underline="never">
+            <ButtonThemed>Start Logging</ButtonThemed>
+        </Link>
       </Grid>
     </Grid>
   );

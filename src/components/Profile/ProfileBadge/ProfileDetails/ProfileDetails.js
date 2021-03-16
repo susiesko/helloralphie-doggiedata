@@ -25,7 +25,7 @@ const ProfileDetails = () => {
     birthdateString = `${year}-${month}-${day}`;
   }
 
-  const pStyle = {textAlign: 'center'};
+  const pStyle = {textAlign: 'center', marginTop: '0px'};
   const pContent = [name, breed, birthdateString];
 
   return (

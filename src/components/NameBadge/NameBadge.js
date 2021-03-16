@@ -7,7 +7,7 @@ const ProfileBadge = () => {
   const name = useSelector(state => state.profile.name);
   return (
     <BaseBadge badgeType="name">
-      {name}
+      <p style={{textAlign: 'center', marginTop: '0px'}}>{name}</p>
     </BaseBadge>
   );
 }

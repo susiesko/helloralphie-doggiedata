@@ -8,7 +8,7 @@ const BaseBadge = props => {
   return (
     <Grid container item direction="row" justify="center" alignItems="flex-start" spacing={1}>
       <Grid item xs={12}>
-        <Avatar/>
+        <Avatar badgeType={props.badgeType}/>
       </Grid>
       <Hidden smDown>
         <Grid item xs={12}>
