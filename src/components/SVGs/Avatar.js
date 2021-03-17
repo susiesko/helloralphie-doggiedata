@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => {
 // 202 height from Figma
 const Avatar = ({badgeType}) => {
   const boxStyle = { width: '202px', height: '202px', margin: 'auto' };
-  console.log(badgeType);
+
   if (badgeType === 'name'){
     boxStyle.width = '101px';
     boxStyle.height = '101px';

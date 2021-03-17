@@ -12,7 +12,6 @@ import doggieDataTheme from './theme';
 
 // redux tools ---------------------------------------------------------------
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
-console.log(composeEnhancers)
 
 const rootReducer = doggieDataReducer;
 

@@ -28,11 +28,9 @@ const ProfileForm = () => {
       breed,
       birthdate
     }).then(res => {
-      console.log(res);
       dispatch(actions.updateProfileField('id', res.data.name));
       history.push('/doglog');
     }).catch(err => {
-      console.log(err);
     });
   }
 
@@ -41,7 +39,7 @@ const ProfileForm = () => {
       <h1>Your Doggy Profile</h1>
       <Grid 
         container
-        justify="start"
+        justify="flex-start"
         direction="column"
         alignItems="stretch"
         spacing={5}

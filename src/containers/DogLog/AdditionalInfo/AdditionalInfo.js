@@ -20,7 +20,6 @@ const AdditionalInfo = () => {
       ...logData,
       profileId
     }).then(res => {
-      console.log(res);
       history.push('/doglog/full-log');
     }).catch(err => {
       console.log(err);
